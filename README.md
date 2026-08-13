@@ -1,0 +1,55 @@
+Project 4 — Banking System
+
+# Data to Store
+- Accounts -> Account class
+
+*Each account should contain:* -> Attributes for the Account class
+
+Account Number
+Name
+Account Type (Current/Savings)
+Current Balance
+Status (Active/Frozen)
+Transactions
+
+- Transaction -> Transaction class
+
+*Each transaction should contain:* -> Atributes for the Transaction class
+
+Transaction ID
+Senders Account
+Receivers Account
+Date
+Type
+Amount
+Balance After Transaction
+
+# Features
+
+Create an account -> method of Account class
+Deposit money -> method of Account class
+Withdraw money -> method of Account class (Prevent overdrafts)
+Transfer money between accounts
+Freeze an account -> method of Account class
+Reactivate an account -> method of Account class
+View transaction history
+View the last 10 transactions
+Show total deposits
+Show total withdrawals
+Generate a bank statement
+Every balance change must create a transaction record.
+
+The balance should never be changed silently without a corresponding transaction being recorded.
+
+# Account Class:
+
+## Attributes:
+- Account Number
+- Name
+- Account Type (Current/Savings)
+- Current Balance
+- Status (Active/Frozen)
+- Transactions
+
+
+
