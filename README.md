@@ -19,6 +19,11 @@ Deposit money -> method of Account class
 Withdraw money -> method of Account class (Prevent overdrafts)
 Freeze an account -> method of Account class
 Reactivate an account -> method of Account class
+Generate a bank statement -> method of Account class
+Show total deposits -> method of Account class
+Show total withdrawals -> method of Account class
+View transaction history -> method of Account class
+View the last 10 transactions -> method of Account class
 
 
 - Transaction -> Transaction class
@@ -41,10 +46,10 @@ Withdraw money -> method of Account class (Prevent overdrafts)
 Transfer money between accounts
 Freeze an account -> method of Account class
 Reactivate an account -> method of Account class
-View transaction history
-View the last 10 transactions
-Show total deposits
-Show total withdrawals
-Generate a bank statement
+View transaction history -> method of Account class
+View the last 10 transactions -> method of Account class
+Show total deposits -> method of Account class
+Show total withdrawals -> method of Account class
+Generate a bank statement -> method of Account class
 Every balance change must create a transaction record.
 The balance should never be changed silently without a corresponding transaction being recorded.
