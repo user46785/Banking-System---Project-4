@@ -48,7 +48,7 @@ class Account:
         return f"Account Number: {self.account_number}, Owner's Name: {self.name.title()}, Account Type: {self.account_type.title()}, Account Status: {self.account_status.title()}, Account Balance: ${self.current_balance}"
 
     @classmethod
-    def get_account(cls):
+    def create_account(cls):
         name = input("\nPlease enter your Name: ")
         account_type = input("\nPlease enter your Account Type(Current/Savings): ")
 
@@ -60,3 +60,98 @@ class Account:
     @classmethod
     def reuse_account(cls):
         ...
+
+    def withdraw_from_account(self) -> None:
+        """
+        Decreases current balance amount.
+        """
+        if not self.account_status == 'active':
+            print("\nThe account is freezed, Unfreeze account to withdraw.")
+
+        else:
+            while True:
+                try:
+                    amount = float(input("\nEnter ammount to withdraw in dollars: "))
+
+                    if not amount:
+                        print("\nNo amount entered.")
+
+                    elif amount > self.current_balance:
+                        print("\nInsufficient balance.")
+
+                    else:
+                        self.current_balance -= amount
+                        print(f"\n${amount} withdrawn from account, remaining balance ${self.current_balance}")
+                        break
+
+                except ValueError:
+                    print("\nPlease enter a valid amount.")
+
+    def deposit_from_account(self) -> None:
+        """
+        Increases current balance amount.
+        """
+        if not self.account_status == 'active':
+            print("\nThe account is freezed, Unfreeze account to deposit.")
+        
+        else:
+            while True:
+                try:
+                    amount = float(input("\nEnter ammount to deposit in dollars: "))
+
+                    if not amount:
+                        print("\nNo amount entered.")
+
+                    else:
+                        self.current_balance += amount
+                        print(f"\n${amount} deposited to account, new balance ${self.current_balance}")
+                        break
+
+                except ValueError:
+                    print("\nPlease enter a valid amount.")
+
+    def freeze_account(self) -> None:
+        """
+        Sets account status to unactive.
+        """
+        if not self.account_status == 'active':
+            print("\nThe account is already freezed.")
+
+        else:
+            while True:
+                confirmation = input("\nAre you sure you want to freeze your account?(Yes/No): ").strip().lower()
+
+                if confirmation == 'yes':
+                    self.account_status = 'unactive'
+                    print("\nAccount Freezed.")
+                    break 
+
+                elif confirmation == 'no':
+                    print("\nAccount will remain Active.")
+                    break
+
+                else:
+                    print("\nPlease enter Yes or No.")
+
+    def reactivate_account(self) -> None:
+        """
+        Sets account status to active.
+        """
+        if self.account_status == 'active':
+            print("\nThe account is already Active.")
+        
+        else:
+            while True:
+                confirmation = input("\nAre you sure you want to Activate your account?(Yes/No): ").strip().lower()
+
+                if confirmation == 'yes':
+                    self.account_status = 'active'
+                    print("\nAccount Activated.")
+                    break 
+
+                elif confirmation == 'no':
+                    print("\nAccount will remain Freezed.")
+                    break
+
+                else:
+                    print("\nPlease enter Yes or No.")
