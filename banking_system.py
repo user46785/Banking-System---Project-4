@@ -48,7 +48,12 @@ class Account:
         return f"Account Number: {self.account_number}, Owner's Name: {self.name.title()}, Account Type: {self.account_type.title()}, Account Status: {self.account_status.title()}, Account Balance: ${self.current_balance}"
 
     @classmethod
-    def create_account(cls):
+    def create_account(cls) -> object:
+        """
+        Creates a new account object.
+
+        :return: New object.
+        """
         name = input("\nPlease enter your Name: ")
         account_type = input("\nPlease enter your Account Type(Current/Savings): ")
 
@@ -58,8 +63,21 @@ class Account:
         return new_account
 
     @classmethod
-    def reuse_account(cls):
-        ...
+    def reuse_account(cls, account_number, name, account_type, current_balance, account_status) -> object:
+        """
+        Allows the user to reuse an account object without initializing.
+
+        :return: Reusable object.
+        """
+        account = cls.__new__(cls)
+
+        account.account_number = account_number
+        account._name = name
+        account._account_type = account_type
+        account.current_balance = current_balance
+        account.account_status = account_status
+
+        return account
 
     def withdraw_from_account(self) -> None:
         """
