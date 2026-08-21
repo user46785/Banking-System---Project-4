@@ -11,6 +11,18 @@ class Account:
         self.account_status = 'active'
 
     @property
+    def account_number(self):
+        return self._account_number
+
+    @account_number.setter
+    def account_number(self, new_account_number):
+        if new_account_number in ...:
+            self.account_number = f"{random.choice(range(1, 10000000000)):010}"
+            
+        else:
+            self._account_number = new_account_number
+
+    @property
     def name(self):
         return self._name
 
